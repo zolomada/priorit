@@ -99,22 +99,37 @@ Currently not available
 
 ### Data
 
-- Need help structuring the database
+<!-- Need help refining the database structure  -->
+
 - User table
 
-  - ID
-  - Name
-  - Email
-  - Password
-  - Some foreign key to the goals table?
+Stores information about registered users
+
+- id : Primary key
+- firstname
+- lastname
+- username
+- email
+- password
 
 - Goals table
+
+Stores the quarterly goals set by users - id : Primary key - user_id: Foreign key referencing the id column in the User table - year - quarter (Q1, Q2 etc.) - major goal description
+
+- MinorGoals Table
+
+  - id: Primary key
+  - goal_id: Foreign key referencing the id column in the Goal table
+    - It is a one to many relationship
+  - description
 
 ### Endpoints
 
 **POST /user/register**
 
 - Parameters:
+  - firstname (string)
+  - lastname (string)
   - username (string)
   - email (string)
   - password (string)
@@ -141,6 +156,7 @@ Response:
 - Requires Authentication Token
 
 - Parameters:
+  - year
   - quarter ()
   - majorGoal (string)
   - minorGoals(array of strings)
