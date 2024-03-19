@@ -14,8 +14,11 @@ The Quaterly goals can be independent or they can all be goals that lead up to o
 
 ### User Profile
 
-- Anyone who set goals for the year but never achieves it
-- Anyone who would like to set goals but doesn't have a way to track it properly
+- Individuals who want to set and track goals for the year. Can include but is not limited to:
+  - Students setting academic goals
+  - Professionals who want to achieve career milestones
+  - Entrepreneurs who want to launch a business
+  - Anyone seeking personal growth and development
 
 ### Features
 
@@ -114,7 +117,8 @@ List endpoints that your server will implement, including HTTP methods, paramete
 ### Auth
 
 - JWT
-  - Other options I am considering OpenID or OAuth
+  - Hash passwords will be stored in the database during user registration
+  - During login, server will verify the provided credentials against the hashed password in database
 
 ## Roadmap
 
