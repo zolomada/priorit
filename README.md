@@ -113,11 +113,54 @@ List endpoints that your server will implement, including HTTP methods, paramete
 
 ### Auth
 
-Does your project include any login or user profile functionality? If so, describe how authentication/authorization will be implemented.
+- JWT
+  - Other options I am considering OpenID or OAuth
 
 ## Roadmap
 
-Scope your project as a sprint. Break down the tasks that will need to be completed and map out timeframes for implementation. Think about what you can reasonably complete before the due date. The more detail you provide, the easier it will be to build.
+- Create client
+
+  - react project with routes and boilerplate pages
+
+- Create server
+
+  - express project with routing, with placeholder 200 responses
+
+- Create database
+
+  - database tables with relationships
+
+- Feature: Sign Up page
+
+  - Create POST /user/register endpoint
+  - Create sign up page with form
+
+- Feature: Login page
+
+  - Create POST /user/login endpoint
+  - Create sign up page with form
+
+- Feature: Goal Setting page
+
+  - Create POST / endpoint
+  - Create goals edit page with form
+  - Store information in database
+
+- Feature: Goals List page
+    <!-- Display is goals based on logged in user -->
+
+  - Create GET /user:id/goals endpoint ?
+  - Create goals list page
+
+- Feature: Home page
+    <!-- Need help with the endpoint. Display is based on user logged in and the current quarter -->
+
+  - Create GET /goals/:id endpoint
+  - Create Home page
+
+- Bug fixes
+
+- Demo Day
 
 ## Nice-to-haves
 
@@ -135,5 +178,3 @@ Scope your project as a sprint. Break down the tasks that will need to be comple
   - Finished goals are archived
 - End of year
   - Finished goals are achieved
-
-Your project will be marked based on what you committed to in the above document. Under nice-to-haves, you can list any additional features you may complete if you have extra time, or after finishing.
