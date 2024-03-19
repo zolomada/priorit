@@ -112,7 +112,76 @@ Currently not available
 
 ### Endpoints
 
-List endpoints that your server will implement, including HTTP methods, parameters, and example responses.
+**POST /user/register**
+
+- Parameters:
+  - username (string)
+  - email (string)
+  - password (string)
+
+Response:
+{
+"message": "User registered successfully"
+}
+
+**POST /user/login**
+
+- Parameters:
+  - email(string)
+  - password(string)
+
+Response:
+{
+"message": "Login successful"
+"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+}
+
+**POST /goals**
+
+- Requires Authentication Token
+
+- Parameters:
+  - quarter ()
+  - majorGoal (string)
+  - minorGoals(array of strings)
+
+Response:
+{
+"message": "Goals created successfully."
+}
+
+**GET /goals/:quarter**
+
+- Requires Authentication Token
+
+- Parameters
+  - quarter()
+
+Response:
+{
+"goals": [
+{
+"quarter":
+"majorGoal":
+"minorGoal": []
+}
+]
+}
+
+**PUT /goals/:goalId**
+
+- Requires Authentication Token
+
+- Parameters:
+  - goalId() - Unique identifier of the goal to be edited. Cannot be changed
+  - quarter ()
+  - majorGoal (string)
+  - minorGoals (array of strings)
+
+Response:
+{
+"message": "Goals updated successfully."
+}
 
 ### Auth
 
@@ -160,7 +229,7 @@ List endpoints that your server will implement, including HTTP methods, paramete
 - Feature: Home page
     <!-- Need help with the endpoint. Display is based on user logged in and the current quarter -->
 
-  - Create GET /home endpoint
+  - Create GET /home endpoint or /goals/:quarter
   - Develop home page
 
 - Bug fixes
