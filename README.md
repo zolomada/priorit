@@ -118,45 +118,46 @@ List endpoints that your server will implement, including HTTP methods, paramete
 
 ## Roadmap
 
-- Create client
+- Project Setup
 
-  - react project with routes and boilerplate pages
+  - Create client
 
-- Create server
+    - react project with routes and boilerplate pages
 
-  - express project with routing, with placeholder 200 responses
+  - Create server
 
-- Create database
+    - express project with routing, with placeholder 200 responses
 
-  - database tables with relationships
+  - Create database
+    - database tables with relationships
 
 - Feature: Sign Up page
 
-  - Create POST /user/register endpoint
-  - Create sign up page with form
+  - Create POST /user/register endpoint to handle user registration
+  - Develop a sign up page with a form
 
 - Feature: Login page
 
-  - Create POST /user/login endpoint
-  - Create sign up page with form
+  - Create POST /user/login endpoint to handle user login
+  - Develop login page with a form
 
 - Feature: Goal Setting page
 
-  - Create POST / endpoint
-  - Create goals edit page with form
+  - Create POST /goals endpoint to allow users set their goals
+  - Develop page with a form to input quarterly goals
   - Store information in database
 
 - Feature: Goals List page
     <!-- Display is goals based on logged in user -->
 
-  - Create GET /user:id/goals endpoint ?
-  - Create goals list page
+  - Create GET /goals/:userId endpoint to fetch goals for a specific user
+  - Develop goals list page to display all goals for the current year
 
 - Feature: Home page
     <!-- Need help with the endpoint. Display is based on user logged in and the current quarter -->
 
-  - Create GET /goals/:id endpoint
-  - Create Home page
+  - Create GET /home endpoint
+  - Develop home page
 
 - Bug fixes
 
@@ -178,3 +179,5 @@ List endpoints that your server will implement, including HTTP methods, paramete
   - Finished goals are archived
 - End of year
   - Finished goals are achieved
+- Archive Page
+  - Stores all goals for the past 5 years from the current year
