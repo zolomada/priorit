@@ -4,21 +4,39 @@ import axios from "axios";
 import { baseUrl } from "../../global";
 
 function SignUpForm() {
-  const [values, setValues] = useState({
-    name: "",
-    email: "",
-    password: "",
-  });
+  const [newName, setNewName] = useState("");
+  const [newEmail, setNewEmail] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+
+  const handleNameChange = (event) => {
+    setNewName(event.target.value);
+  };
+
+  const handleEmailChange = (event) => {
+    setNewEmail(event.target.value);
+  };
+
+  const handlePasswordChange = (event) => {
+    setNewPassword(event.target.value);
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post(`${baseUrl}sign-up`, values);
+      const response = await axios.post(`${baseUrl}sign-up`, {
+        name: newName,
+        email: newEmail,
+        password: newPassword,
+      });
       console.log(response);
     } catch (error) {
       console.log(error);
     }
   };
+
+  // if (!newName && !newEmail && !newPassword) {
+  //   return <div>Loading....</div>;
+  // }
 
   return (
     <div>
@@ -30,7 +48,8 @@ function SignUpForm() {
             placeholder="Enter your name"
             name="name"
             className="signup__name"
-            onChange={(e) => setValues({ ...values, name: e.target.value })}
+            value={newName}
+            onChange={handleNameChange}
           />
         </div>
         <div>
@@ -38,9 +57,10 @@ function SignUpForm() {
           <input
             type="text"
             placeholder="Enter your name"
-            name="name"
+            name="email"
             className="signup__name"
-            onChange={(e) => setValues({ ...values, email: e.target.value })}
+            value={newEmail}
+            onChange={handleEmailChange}
           />
         </div>
         <div>
@@ -50,7 +70,8 @@ function SignUpForm() {
             placeholder="Enter a password"
             name="password"
             className="signup__password"
-            onChange={(e) => setValues({ ...values, password: e.target.value })}
+            value={newPassword}
+            onChange={handlePasswordChange}
           />
         </div>
         {/* <div>
@@ -62,7 +83,7 @@ function SignUpForm() {
             className="signup__password"
           />
         </div> */}
-        <button type="button" className="signup__button">
+        <button type="submit" className="signup__button">
           Sign Up
         </button>
       </form>
