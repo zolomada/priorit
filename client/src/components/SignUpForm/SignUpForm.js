@@ -2,6 +2,7 @@ import "./SignUpForm.scss";
 import { useState } from "react";
 import axios from "axios";
 import { baseUrl } from "../../global";
+import { useNavigate } from "react-router-dom";
 
 function SignUpForm() {
   const [newName, setNewName] = useState("");
@@ -20,45 +21,45 @@ function SignUpForm() {
     setNewPassword(event.target.value);
   };
 
+  const navigate = useNavigate();
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post(`${baseUrl}sign-up`, {
+      const response = await axios.post(`${baseUrl}signup`, {
         name: newName,
         email: newEmail,
         password: newPassword,
       });
-      console.log(response);
+      if (response.data.Status === "Success") {
+        navigate("/login");
+      }
+      return response.data;
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
-
-  // if (!newName && !newEmail && !newPassword) {
-  //   return <div>Loading....</div>;
-  // }
 
   return (
     <div>
       <form className="signup" onSubmit={handleSubmit}>
-        <div>
+        <div className="signup__name-container">
           <label htmlFor="name">Full Name</label>
           <input
             type="text"
             placeholder="Enter your name"
             name="name"
-            className="signup__name"
+            className="signup__text"
             value={newName}
             onChange={handleNameChange}
           />
         </div>
-        <div>
+        <div className="signup__email-container">
           <label htmlFor="email">Email</label>
           <input
             type="text"
-            placeholder="Enter your name"
+            placeholder="Enter your email"
             name="email"
-            className="signup__name"
+            className="signup__text"
             value={newEmail}
             onChange={handleEmailChange}
           />
@@ -69,7 +70,7 @@ function SignUpForm() {
             type="password"
             placeholder="Enter a password"
             name="password"
-            className="signup__password"
+            className="signup__text signup__password"
             value={newPassword}
             onChange={handlePasswordChange}
           />

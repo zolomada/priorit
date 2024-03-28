@@ -1,6 +1,8 @@
 import "./App.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SignUpPage from "./Pages/SignUpPage/SignUpPage";
+import LoginPage from "./Pages/LoginPage/LoginPage";
+import HomePage from "./Pages/HomePage/HomePage";
 
 function App() {
   return (
@@ -8,10 +10,10 @@ function App() {
       <BrowserRouter>
         <Routes>
           {/* <Route path="/" element={<LandingPage />}/> */}
-          <Route path="/sign-up" element={<SignUpPage />} />
-          {/* <Route path="/login" element={<LoginPage />}/> */}
+          <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/login" element={<LoginPage />} />
           {/* <Route path="/goals" element={<GoalsListPage />}/> */}
-          {/* <Route path="/home" element={<HomePage />}/> */}
+          <Route path="/home" element={<HomePage />} />
           {/* <Route path="/profile" element={<ProfilePage />}/> */}
         </Routes>
       </BrowserRouter>
