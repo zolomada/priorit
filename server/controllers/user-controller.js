@@ -1,7 +1,7 @@
 const knex = require("knex")(require("../knexfile"));
 const bcrypt = require("bcrypt");
 const { validationResult } = require("express-validator");
-// const jwt = require("jsonwebtoken");
+const { generateToken } = require("../utility");
 
 const register = async (req, res) => {
   //check validation errors
@@ -54,7 +54,10 @@ const login = async (req, res) => {
       return res.status(401).json({ error: "Incorrect password" });
     }
 
-    res.status(200).json({ Status: "Login successful" });
+    const token = generateToken(user.id, email);
+    res.cookie("token", token);
+
+    res.status(200).json({ token, Status: "Login successful" });
   } catch (error) {
     console.error("Error logging into account:", error);
     res.status(500).json({ error: "Internal server error" });
