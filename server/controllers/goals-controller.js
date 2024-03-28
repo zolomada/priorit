@@ -76,7 +76,7 @@ const getAllGoals = async (req, res) => {
     const userID = verifiedToken.userId;
 
     // Get goals for the logged-in user
-    const userGoals = await knex("goals").select("*").where("user-id", userID);
+    const userGoals = await knex("goals").select("*").where("user_id", userID);
 
     res.status(200).json({ goals: userGoals });
   } catch (error) {
