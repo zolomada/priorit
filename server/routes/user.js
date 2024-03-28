@@ -5,6 +5,8 @@ const { postNewUserValidator } = require("../validators/user-validator");
 
 router.route("/");
 
-router.route("/sign-up").post(postNewUserValidator, userController.register);
+router.route("/signup").post(postNewUserValidator, userController.register);
+
+router.route("/login").post(userController.login);
 
 module.exports = router;
