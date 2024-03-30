@@ -1,0 +1,20 @@
+@use "../../styles/partials/colors";
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+
+.login {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: white;
+  }
+
+  &__info-body {
+    margin: 0 1rem;
+    border-radius: 5px;
+    box-shadow: 0px 0px 24px #b9b8c1;
+    flex-grow: 1;
+    background-color: #ebeae3;
+  }
+}

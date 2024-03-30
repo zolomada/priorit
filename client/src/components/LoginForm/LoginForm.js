@@ -7,6 +7,9 @@ import { useNavigate } from "react-router-dom";
 function LoginForm() {
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
+  const [isLoginError, setIsLoginError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const navigate = useNavigate();
 
   const handleEmailChange = (event) => {
     setLoginEmail(event.target.value);
@@ -16,7 +19,6 @@ function LoginForm() {
     setLoginPassword(event.target.value);
   };
 
-  const navigate = useNavigate();
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -24,30 +26,35 @@ function LoginForm() {
         email: loginEmail,
         password: loginPassword,
       });
-      if (response.data.Status === "Login successful") {
+      if (response.data.token) {
+        localStorage.setItem("token", response.data.token);
+        setIsLoginError(false);
+        setErrorMessage("");
         navigate("/home");
       }
-      return response.data;
     } catch (error) {
-      console.error(error);
+      setIsLoginError(true);
+      setErrorMessage(error.response.data.error.message);
     }
   };
 
   return (
     <div>
+      {isLoginError && <label style={{ color: "red" }}>{errorMessage}</label>}
       <form className="login" onSubmit={handleSubmit}>
-        <div>
+        <h2>Welcome Back!!!</h2>
+        <div className="text-container">
           <label htmlFor="email">Email</label>
           <input
             type="text"
             placeholder="Enter your email"
             name="email"
-            className="login__name"
+            className="login__email"
             value={loginEmail}
             onChange={handleEmailChange}
           />
         </div>
-        <div>
+        <div className="text-container">
           <label htmlFor="name">Password</label>
           <input
             type="password"
