@@ -20,7 +20,6 @@ app.use(
 app.use(cookieParser());
 
 app.use("/", userRouter);
-app.use("/goals", goalsRouter);
 
 // Middleware to verify token
 
@@ -45,6 +44,12 @@ app.use((req, res, next) => {
     return next();
   }
   tokenMiddleware(req, res, next);
+});
+
+app.use("/goals", goalsRouter);
+
+app.get("/test", (req, res) => {
+  res.send("Test route is working");
 });
 
 app.listen(PORT, () => {
