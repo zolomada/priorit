@@ -1,5 +1,12 @@
+import "./HomePage.scss";
+import CurrentGoalCard from "../../components/CurrentGoalCard/CurrentGoalCard";
+
 function HomePage() {
-  return <div>Home Page</div>;
+  return (
+    <>
+      <CurrentGoalCard />
+    </>
+  );
 }
 
 export default HomePage;

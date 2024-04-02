@@ -30,7 +30,7 @@ function LoginForm() {
         localStorage.setItem("token", response.data.token);
         setIsLoginError(false);
         setErrorMessage("");
-        navigate("/home");
+        navigate("/goals/home");
       }
     } catch (error) {
       setIsLoginError(true);

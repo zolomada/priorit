@@ -48,22 +48,6 @@ function GoalForm() {
     }
   };
 
-  // const fetchAllGoals = async () => {
-  //   try {
-  //     const response = await axios.get(`${baseUrl}goals`, {
-  //       withCredentials: true,
-  //     });
-  //     setSubmittedGoals(response.data.goals);
-  //     console.log(response.data.goals)
-  //   } catch (error) {
-  //     console.error("Error fetching goals: ", error);
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   fetchAllGoals();
-  // }, []);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsFormVisible(false);
@@ -76,7 +60,6 @@ function GoalForm() {
     if (!token) {
       console.error("No session token found");
       navigate("/login");
-
       setIsFormVisible(true);
       return; // Exit the function to prevent making the request without a token
     }
@@ -96,7 +79,6 @@ function GoalForm() {
 
       return axios.post(`${baseUrl}goals`, postData, {
         headers: {
-          // Include the token in the Authorization header
           Authorization: `Bearer ${token}`,
         },
         withCredentials: true,
@@ -104,20 +86,24 @@ function GoalForm() {
     });
 
     try {
-      // Wait for all Axios requests to complete
       const results = await Promise.all(promises);
 
-      const updatedGoals = results.map((result) => ({
-        ...result.data,
-        quarter: results.data.quarterNumber,
-        year: results.data.year,
-        majorGoal: results.data.majorGoal.description,
-        minorGoals: Array.isArray(results.data.minorGoals)
-          ? results.data.minorGoals.map((minor) => minor.description)
-          : [],
-      }));
+      const updatedGoals = results.map((result) => {
+        const goalData = result.data;
+        return {
+          quarter: `Q${goalData.quarterNumber}`,
+          year: goalData.year,
+          majorGoal: goalData.majorGoal
+            ? goalData.majorGoal.description
+            : "No major goal submitted",
+          minorGoals: Array.isArray(goalData.minorGoals)
+            ? goalData.minorGoals.map((minor) =>
+                minor ? minor.description : "No minor goal submitted"
+              )
+            : [],
+        };
+      });
 
-      console.log("Updated Goals: ", updatedGoals);
       setSubmittedGoals(updatedGoals);
 
       setIsFormVisible(false);
