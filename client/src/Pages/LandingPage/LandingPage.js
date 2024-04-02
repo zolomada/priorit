@@ -1,18 +1,21 @@
 import "./LandingPage.scss";
 import CarouselCard from "../../components/Carousel/Carousel";
 import PrioritHeader from "../../components/PrioritHeader/PrioritHeader";
+import { Link } from "react-router-dom";
 
 function LandingPage() {
   return (
-    <div>
-      <div>
-        <PrioritHeader />
-      </div>
+    <div className="landing_container">
+      <PrioritHeader />
       <div className="landing__text-card">
         <CarouselCard className="carouselcard" />
         <div className="landing__button-container">
-          <button className="landing__signup btn">Sign Up</button>
-          <button className="landing__login btn">Login</button>
+          <Link to="/signup">
+            <button className="landing__signup btn ">Sign Up</button>
+          </Link>
+          <Link to="/login">
+            <button className="landing__login btn">Login</button>
+          </Link>
         </div>
       </div>
     </div>

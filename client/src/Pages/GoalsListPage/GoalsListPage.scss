@@ -1,0 +1,8 @@
+@use "../../styles/partials/colors";
+@use "../../styles/partials/typography" as *;
+
+h1 {
+  font-family: Exo;
+  font-weight: 700;
+  color: colors.$brown;
+}

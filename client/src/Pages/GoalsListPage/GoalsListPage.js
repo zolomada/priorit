@@ -1,5 +1,7 @@
+import "./GoalsListPage.scss";
 import { useState } from "react";
 import GoalForm from "../../components/GoalForm/GoalForm";
+import NavHeader from "../../components/NavHeader/NavHeader";
 
 function GoalsListPage() {
   const [goals, setGoals] = useState([]);
@@ -21,7 +23,8 @@ function GoalsListPage() {
 
   return (
     <div>
-      <h1>Goals Page</h1>
+      <NavHeader />
+      <h1>Your Goals For The Year</h1>
       {isFormVisible && (
         <GoalForm
           onSubmit={handleSubmit}

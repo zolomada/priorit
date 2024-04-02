@@ -42,7 +42,8 @@ function SignUpForm() {
   return (
     <div>
       <form className="signup" onSubmit={handleSubmit}>
-        <div className="signup__name-container">
+        <h2>Create Account</h2>
+        <div className="text-container">
           <label htmlFor="name">Full Name</label>
           <input
             type="text"
@@ -53,7 +54,7 @@ function SignUpForm() {
             onChange={handleNameChange}
           />
         </div>
-        <div className="signup__email-container">
+        <div className="text-container">
           <label htmlFor="email">Email</label>
           <input
             type="text"
@@ -64,7 +65,7 @@ function SignUpForm() {
             onChange={handleEmailChange}
           />
         </div>
-        <div>
+        <div className="text-container">
           <label htmlFor="name">Password</label>
           <input
             type="password"

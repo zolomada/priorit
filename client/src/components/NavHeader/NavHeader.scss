@@ -1,0 +1,34 @@
+@use "../../styles/partials/colors";
+@use "../../styles/partials/mixins";
+
+.navheader {
+  display: flex;
+  justify-content: space-between;
+  background-color: colors.$eggshell-white;
+
+  &__logo-container {
+    margin: 1.5rem 1rem;
+  }
+
+  &__logo {
+    width: 100px;
+    margin: 1.5rem, 1.25rem;
+  }
+
+  &__nav-container {
+    display: flex;
+    margin-right: 1.5rem;
+    margin-top: 1.25rem;
+  }
+
+  &__list {
+    width: 30px;
+    margin-left: 1.25rem;
+    margin-right: 1.25rem;
+  }
+
+  &__user {
+    width: 30px;
+    height: 30px;
+  }
+}

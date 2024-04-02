@@ -1,22 +1,19 @@
 import "./SignUpPage.scss";
 import SignUpForm from "../../components/SignUpForm/SignUpForm";
 import { Link } from "react-router-dom";
-import wave from "../../assets/wave.svg";
+import PrioritHeader from "../../components/PrioritHeader/PrioritHeader";
 
 function SignUpPage() {
   return (
-    <div>
-      <div>
-        <h1>Priorit</h1>
-      </div>
-      <div>
-        <img src={wave} alt="" className="divider" />
-      </div>
-      <SignUpForm />
-      <div>
-        <p>
-          Have an account? <Link to="/login">Login</Link>
-        </p>
+    <div className="signup__container">
+      <PrioritHeader />
+      <div className="signup__info-body">
+        <SignUpForm />
+        <div>
+          <p>
+            Have an account? <Link to="/login">Login</Link>
+          </p>
+        </div>
       </div>
     </div>
   );

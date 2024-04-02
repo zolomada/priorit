@@ -124,6 +124,7 @@ function GoalForm() {
     <>
       {isFormVisible && (
         <form onSubmit={handleSubmit}>
+          <h2>Set Your Goals</h2>
           {goalForms.map((goalForm, index) => (
             <div key={index}>
               <div>
@@ -188,7 +189,7 @@ function GoalForm() {
         </form>
       )}
       <div>
-        <h2>Submitted Goals</h2>
+        <h2>Goals</h2>
         {submittedGoals.map((goal, index) => (
           <div key={index}>
             <p>

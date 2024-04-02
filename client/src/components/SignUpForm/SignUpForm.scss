@@ -1,0 +1,48 @@
+@use "../../styles/partials/colors";
+@use "../../styles/partials/mixins";
+
+.signup {
+  margin: 3.5rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+
+  &__button {
+    font-family: "AlegreyaSans";
+    font-weight: 400;
+    font-size: 1.5rem;
+    background-color: colors.$dark-red;
+    color: colors.$white;
+    padding: 0.5rem 0;
+    border-radius: 25px;
+    border: none;
+  }
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+label {
+  margin-bottom: 0.75rem;
+  font-family: "AlegreyaSans";
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: colors.$dark-red;
+}
+
+input {
+  border: none;
+  padding: 15px 20px;
+  border-radius: 25px;
+  width: 100%;
+  color: #544013;
+  display: block;
+}
+
+h2 {
+  font-family: "Exo";
+  color: colors.$light-red;
+}

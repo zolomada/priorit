@@ -1,3 +1,17 @@
-.landing__slide {
-  padding: 1.5rem;
+@use "../../styles/partials/colors";
+
+.landing {
+  background-color: colors.$off-white;
+  &__slide {
+    padding: 1.5rem;
+  }
+}
+
+ul {
+  list-style-type: none;
+  text-align: left;
+}
+
+strong {
+  color: colors.$dark-red;
 }
